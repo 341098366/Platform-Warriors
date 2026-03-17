@@ -29,43 +29,51 @@ The objective is simple:
 
 # Features
 
--   Main menu system
--   Multiplayer character selection
+-   Singleplayer/Multiplayer
+-   Character selection
 -   Countdown before match start
 -   Player movement (left, right, jump)
--   Multiple projectile attacks
--   Health tracking system
+-   Multiple character attacks/moves
 -   Game over and winner screen
 -   Background music
 -   Map loading system
 
 ------------------------------------------------------------------------
 
-# Controls
+## Controls
 
-## Player 1
+<table>
+<tr>
+<td>
 
-  Action             Key
-  ------------------ -----
-  Move Left          A
-  Move Right         D
-  Jump               W
-  Primary Attack     T
-  Secondary Attack   Y
-  Special Ability    U
+### Player 1
 
-------------------------------------------------------------------------
+| Action            | Key |
+|-------------------|-----|
+| Move Left         | A   |
+| Move Right        | D   |
+| Jump              | W   |
+| Primary Attack    | T   |
+| Secondary Attack  | Y   |
+| Special Ability   | U   |
 
-## Player 2
+</td>
+<td>
 
-  Action             Key
-  ------------------ -------------
-  Move Left          Left Arrow
-  Move Right         Right Arrow
-  Jump               Up Arrow
-  Primary Attack     Numpad 7
-  Secondary Attack   Numpad 8
-  Special Ability    Numpad 9
+### Player 2
+
+| Action            | Key |
+|-------------------|-----|
+| Move Left         | Left Arrow |
+| Move Right        | Right Arrow |
+| Jump              | Up Arrow |
+| Primary Attack    | Numpad 7 |
+| Secondary Attack  | Numpad 8 |
+| Special Ability   | Numpad 9 |
+
+</td>
+</tr>
+</table>
 
 ------------------------------------------------------------------------
 
