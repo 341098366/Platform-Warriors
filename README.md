@@ -97,6 +97,7 @@ Currently available character:
     -   Rocket attack
     -   Vertical teleport ability
 
+More character to be added in the future
 ------------------------------------------------------------------------
 
 # Maps
