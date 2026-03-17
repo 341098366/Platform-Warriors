@@ -134,7 +134,7 @@ pip install pygame
 Run the main Python file:
 
 ``` bash
-python platform_warriors.py
+python Platform_Warriors.py
 ```
 
 Make sure the following folders exist in the project directory:
@@ -170,6 +170,7 @@ Music:
 -   Some unused maps are not fully implemented
 -   CPU opponent for singleplayer is not implemented
 -   Limited character roster
+-   Movement feels very janky and not smooth. Also can't hold movement buttons
 
 ------------------------------------------------------------------------
 
@@ -179,8 +180,10 @@ Music:
 -   Implement singleplayer CPU AI
 -   Improve collision detection
 -   Add more maps
+-   Improve movement
 -   Implement animations for jumping and attacks
--   Improve UI and menus
+-   Improve UI, menus and sound
+-   Add winning animations
 
 ------------------------------------------------------------------------
 
