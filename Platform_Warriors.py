@@ -17,31 +17,31 @@ from pygame import mixer
 mixer.init()
 
 #Images
-questionMark=pygame.image.load("PW Images/Question Mark.png")
-fightText=pygame.image.load("PW Images/Fight!.png")
-gameText=pygame.image.load("PW Images/Game!.png")
-vs=pygame.image.load("PW Images/VS Screen.png")
+questionMark=pygame.image.load("assets/PW Images/Question Mark.png")
+fightText=pygame.image.load("assets/PW Images/Fight!.png")
+gameText=pygame.image.load("assets/PW Images/Game!.png")
+vs=pygame.image.load("assets/PW Images/VS Screen.png")
 #Black Ops Images
-blackOps=pygame.image.load("PW Images/Black Ops.png")
-blackOpsRight=pygame.image.load("PW Images/Black Ops Standing Right.png")
-blackOpsLeft=pygame.image.load("PW Images/Black Ops Standing Left.png")
-blackOpsMoveRight=pygame.image.load("PW Images/Black Ops Move Right.png")
-blackOpsMoveLeft=pygame.image.load("PW Images/Black Ops Move Left.png")
-#blackOpsJumpRight=pygame.image.load("PW Images/Black Ops Jump Right.png")
-#blackOpsJumpLeft=pygame.image.load("PW Images/Black Ops Jump Left.png")
-rocketLeft=pygame.image.load("PW Images/Rocket Left.png")
-rocketRight=pygame.image.load("PW Images/Rocket Right.png")
+blackOps=pygame.image.load("assets/PW Images/Black Ops.png")
+blackOpsRight=pygame.image.load("assets/PW Images/Black Ops Standing Right.png")
+blackOpsLeft=pygame.image.load("assets/PW Images/Black Ops Standing Left.png")
+blackOpsMoveRight=pygame.image.load("assets/PW Images/Black Ops Move Right.png")
+blackOpsMoveLeft=pygame.image.load("assets/PW Images/Black Ops Move Left.png")
+#blackOpsJumpRight=pygame.image.load("assets/PW Images/Black Ops Jump Right.png")
+#blackOpsJumpLeft=pygame.image.load("assets/PW Images/Black Ops Jump Left.png")
+rocketLeft=pygame.image.load("assets/PW Images/Rocket Left.png")
+rocketRight=pygame.image.load("assets/PW Images/Rocket Right.png")
 
 #Music
-mixer.music.load("PW Music/Thunderzone 2.mp3")
+mixer.music.load("assets/PW Music/Thunderzone 2.mp3")
 mixer.music.play(-1)
 
 #Maps
-grassLand=pygame.image.load("PW Maps/Grass Land.png")
+grassLand=pygame.image.load("assets/PW Maps/Grass Land.png")
 #Unused maps
-finalDestination=pygame.image.load("PW Maps/Final Destination.png")
-yoshi=pygame.image.load("PW Maps/Yoshi's Island.png")
-greenGreens=pygame.image.load("PW Maps/Green Greens.png")
+finalDestination=pygame.image.load("assets/PW Maps/Final Destination.png")
+yoshi=pygame.image.load("assets/PW Maps/Yoshi's Island.png")
+greenGreens=pygame.image.load("assets/PW Maps/Green Greens.png")
 
 #Functions
 
