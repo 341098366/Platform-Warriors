@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="PW Images/Icon.png" width="500">
+  <img src="assets/PW Images/Icon.png" width="500">
 </p>
 
 # Platform Warriors
