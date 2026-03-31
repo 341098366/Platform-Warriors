@@ -9,7 +9,7 @@
 jumps, and projectile attacks to reduce their opponent's health to zero.
 
 Created by **Max Yang**\
-Date: **May 26, 2023**
+Date: **May 26, 2023 - Currently In Development**
 
 ------------------------------------------------------------------------
 
