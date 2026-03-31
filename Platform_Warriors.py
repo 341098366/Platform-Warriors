@@ -1,4 +1,4 @@
-#Platform Warriors, A platform fighter game, Max Yang, 26/05/2023
+#Platform Warriors, A platform fighter game, Max Yang, 26/05/2023 - Present
 
 #Image Credits:
 #Black Ops retrieved from dreamstime.com
@@ -20,6 +20,7 @@ from assets.images import load_images
 from assets.maps import load_maps
 from assets.fonts import load_fonts
 from assets.colors import load_colors
+
 mixer.init()
 pygame.init()
 
@@ -225,6 +226,7 @@ while True:
         P1FirstDelay=0
         P1SecondDelay=0
         P1ThirdDelay=0
+        #create projectiles class and use that instead of all these lists
         P1FirstX=[]
         P1FirstY=[]
         P1FirstSpeed=[]
