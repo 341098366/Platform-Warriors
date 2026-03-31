@@ -14,127 +14,32 @@ import pygame, sys
 from pygame.locals import QUIT
 from random import randint
 from pygame import mixer
+from src.ui.menus import drawMainMenu
+from src.ui.selection import drawMultiplayerSelection
+from assets.images import load_images
+from assets.maps import load_maps
+from assets.fonts import load_fonts
+from assets.colors import load_colors
 mixer.init()
+pygame.init()
 
 #Images
-questionMark=pygame.image.load("assets/PW Images/Question Mark.png")
-fightText=pygame.image.load("assets/PW Images/Fight!.png")
-gameText=pygame.image.load("assets/PW Images/Game!.png")
-vs=pygame.image.load("assets/PW Images/VS Screen.png")
-#Black Ops Images
-blackOps=pygame.image.load("assets/PW Images/Black Ops.png")
-blackOpsRight=pygame.image.load("assets/PW Images/Black Ops Standing Right.png")
-blackOpsLeft=pygame.image.load("assets/PW Images/Black Ops Standing Left.png")
-blackOpsMoveRight=pygame.image.load("assets/PW Images/Black Ops Move Right.png")
-blackOpsMoveLeft=pygame.image.load("assets/PW Images/Black Ops Move Left.png")
-#blackOpsJumpRight=pygame.image.load("assets/PW Images/Black Ops Jump Right.png")
-#blackOpsJumpLeft=pygame.image.load("assets/PW Images/Black Ops Jump Left.png")
-rocketLeft=pygame.image.load("assets/PW Images/Rocket Left.png")
-rocketRight=pygame.image.load("assets/PW Images/Rocket Right.png")
+images = load_images()
+
+#Maps
+maps = load_maps()
+
+#Colors
+colors = load_colors();
+
+#Fonts
+fonts = load_fonts();
 
 #Music
 mixer.music.load("assets/PW Music/Thunderzone 2.mp3")
 mixer.music.play(-1)
 
-#Maps
-grassLand=pygame.image.load("assets/PW Maps/Grass Land.png")
-#Unused maps
-finalDestination=pygame.image.load("assets/PW Maps/Final Destination.png")
-yoshi=pygame.image.load("assets/PW Maps/Yoshi's Island.png")
-greenGreens=pygame.image.load("assets/PW Maps/Green Greens.png")
-
 #Functions
-
-#Draws the main menu screen
-def drawMainMenu():
-    gameWindow.fill(MENUBACKGROUND)
-    menuTitle = menuTitleFont.render("Platform Warriors", 1, MENUTEXT)
-    gameWindow.blit(menuTitle, (325, 75))
-    drawMainMenuButtons(500,250,300,100)
-    return
-
-#Draws buttons for the main menu screen
-def drawMainMenuButtons(x,y,z,a):
-    for i in range(3):
-        pygame.draw.rect(gameWindow, MENUTEXT, (x,y+(i*150),z,a), 0)
-    singleplayerButton = menuButtonFont.render("Singleplayer", 1, WHITE)
-    gameWindow.blit(singleplayerButton, (x+45, y+25))
-    multiplayerButton = menuButtonFont.render("Multiplayer", 1, WHITE)
-    gameWindow.blit(multiplayerButton, (x+45, y+175))
-    exitButton = menuButtonFont.render("Quit", 1, WHITE)
-    gameWindow.blit(exitButton, (x+100, y+325))
-    return
-
-#Draw Multiplayer Selection Screen
-def drawMultiplayerSelection():
-    gameWindow.fill(SELECTIONSCREENBACKGROUND)
-    drawEnterAndEscape()
-    drawCharacterGrids()
-    drawSelectionTitle()
-    drawPlayerDisplay()
-       #work on characters,double jump,wtf is wrong with check collision and HP
-
-    return
-
-#Draw enter and escape hints
-def drawEnterAndEscape():
-    pygame.draw.rect(gameWindow, WHITE, (1000,25,220,125),0)
-    graphics=enterFont.render("Press Enter",1, BLACK)
-    gameWindow.blit(graphics, (1020,45))
-    graphics=enterFont.render("To Fight",1, BLACK)
-    gameWindow.blit(graphics, (1050,90))
-    pygame.draw.rect(gameWindow, WHITE, (60,25,220,125),0)
-    graphics=enterFont.render("Press Escape",1, BLACK)
-    gameWindow.blit(graphics, (65,45))
-    graphics=enterFont.render("To Go Back",1, BLACK)
-    gameWindow.blit(graphics, (80,90))
-    return
-
-#Draw selection title
-def drawSelectionTitle():
-    pygame.draw.rect(gameWindow, SELECTIONTITLE, (340,50,600,100),0)
-    if singleplayer==True:
-        selectionTitle=selectionTitleFont.render("Singleplayer", 1, BLACK)
-    elif multiplayer==True:
-        selectionTitle=selectionTitleFont.render("Multiplayer", 1, BLACK)
-    gameWindow.blit(selectionTitle, (435, 60))
-    return
-
-#Draw grids for characters
-def drawCharacterGrids():
-    for i in range (2):
-        for p in range(4):
-            pygame.draw.rect(gameWindow, CHARACTERBACKGROUND, (0+(p*320),160+(i*170),320,170),0)
-    pygame.draw.line(gameWindow, BLACK,(0,330),(1280,330),1)
-    for i in range(3):
-        pygame.draw.line(gameWindow, BLACK,(320+(i*320),160),(320+(i*320),500),1)
-    gameWindow.blit(blackOps, (103.5,160))
-    return
-
-#Draw Player Display for Character Selection Screen
-def drawPlayerDisplay():
-    pygame.draw.rect(gameWindow, PLAYER1, (0,500,320,220),0)
-    pygame.draw.rect(gameWindow, PLAYER1LIGHT, (320,500,320,220),0)
-    graphics=enterFont.render("Player 1",1, BLACK)
-    gameWindow.blit(graphics, (20,520))
-    if singleplayer==True:
-        pygame.draw.rect(gameWindow, CPU, (640,500,320,220),0)
-        pygame.draw.rect(gameWindow, CPULIGHT, (960,500,320,220),0)
-        graphics=enterFont.render("CPU",1, BLACK)
-        gameWindow.blit(graphics, (660,520))
-        graphics=enterFont.render("Random",1, BLACK)
-        gameWindow.blit(graphics, (660,680))
-        gameWindow.blit(questionMark, (992,500))
-    elif multiplayer==True:
-        pygame.draw.rect(gameWindow, PLAYER2, (640,500,320,220),0)
-        pygame.draw.rect(gameWindow, PLAYER2LIGHT, (960,500,320,220),0)
-        graphics=enterFont.render("Player 2",1, BLACK)
-        gameWindow.blit(graphics, (660,520))
-    if P1Character=="Black Ops":
-        gameWindow.blit(blackOps,(400,530))
-    if P2Character=="Black Ops":
-        gameWindow.blit(blackOps,(1100,530))
-    return
 
 #Draw loading screen
 def drawLoadingScreen():
@@ -282,38 +187,14 @@ def drawHP():
     return
 
 #Main program
-pygame.init()
+
 WIDTH = 1280
 HEIGHT = 720
 gameWindow = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Platform Warriors')
 
-#Colors
-WHITE=(255,255,255)
-BLACK=(0,0,0)
-MENUBACKGROUND=(142,36,142)
-MENUTEXT=(255,100,100)
-SELECTIONSCREENBACKGROUND=(201,183,183)
-SELECTIONTITLE=(245,214,18)
-CHARACTERBACKGROUND=(147,221,239)
-PLAYER1=(255,31,31)
-PLAYER1LIGHT=(255,88,88)
-PLAYER2=(20,116,242)
-PLAYER2LIGHT=(97,166,255)
-CPU=(163,166,169)
-CPULIGHT=(197,199,201)
-
-#Fonts
-menuTitleFont=pygame.font.SysFont("Centaur", 100)
-menuButtonFont=pygame.font.SysFont("Centaur", 50)
-selectionTitleFont=pygame.font.SysFont("Britannic",75)
-enterFont=pygame.font.SysFont("Britannic",35)
-superLargeFont=pygame.font.SysFont("Britannic", 300)
-
 #Booleans
 mainMenu=True
-singleplayer=False
-multiplayer=False
 P1CharacterSelected=False
 P2CharacterSelected=False
 displayLoadingScreen=False
@@ -323,13 +204,14 @@ fighting=False
 gameOver=False
 
 #Variables
+mode=""
 allCharacters=["Black Ops"]
 map=""
 
 while True:
     mouseX, mouseY = pygame.mouse.get_pos()
     if mainMenu==True:
-        drawMainMenu()
+        drawMainMenu(gameWindow, fonts)
         #Reset all variables
         #P1 Variables
         P1Character=""
@@ -384,21 +266,21 @@ while True:
                 #Unused SinglePLayer
                 if mouseX in range(500, 800) and mouseY in range(250, 350):
                     print("Singleplayer")
-                    singleplayer=True
+                    mode="Singleplayer"
                     mainMenu=False
                 #Go to Multiplayer
                 elif mouseX in range(500, 800) and mouseY in range(400, 500):
                     print("Multiplayer")
-                    multiplayer=True
+                    mode="Multiplayer"
                     mainMenu=False
                 #Exit Game
                 elif mouseX in range(500, 800) and mouseY in range(550, 650):
                     print("Quit")
                     pygame.quit()
                     sys.exit()
-    elif multiplayer==True:
+    elif mode == "Multiplayer":
         player2CPU=False
-        drawMultiplayerSelection()
+        drawMultiplayerSelection(gameWindow, mode, fonts, images)
         for event in pygame.event.get():
             #Selecting P1 Character
             if event.type==pygame.MOUSEBUTTONDOWN:
@@ -427,14 +309,14 @@ while True:
                     P1CharacterSelected=False
                     P2CharacterSelected=False
                     mainMenu=True
-                    multiplayer=False
+                    mode=""
                     P1Character=""
                     P2Character=""
                 #Play Game
                 if event.key==pygame.K_RETURN:
                     if P1CharacterSelected==True and P2CharacterSelected==True:
                         print("Fight")
-                        multiplayer=False
+                        mode=""
                         displayLoadingScreen=True
                         whichMap=randint(1,1)
                         if whichMap==1:
